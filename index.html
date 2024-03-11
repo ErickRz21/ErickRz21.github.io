@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<!-- Website - www.codingnepalweb.com -->
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Fontawesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+    <!-- Move to up button -->
+    <div class="scroll-button">
+        <a href="#home"><i class="fas fa-arrow-up"></i></a>
+    </div>
+    <!-- navgaition menu -->
+    <nav>
+        <div class="navbar">
+            <div class="logo"><a href="#">Portfolio</a></div>
+            <ul class="menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <div class="cancel-btn">
+                    <i class="fas fa-times"></i>
+                </div>
+            </ul>
+            <div class="media-icons">
+                <a href="https://github.com/ErickRz21"><i class="fa-brands fa-github"></i></a>
+                <!-- <a href="#"><i class="fab fa-twitter"></i></a> -->
+                <a href="https://www.instagram.com/ericks_ruiz/"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+    <!-- Home Section Start -->
+    <section class="home" id="home">
+        <div class="home-content">
+            <div class="text">
+                <div class="text-one">Hello,</div>
+                <div class="text-two">I am Erick Ruiz</div>
+                <div class="text-three">Computer Systems Student</div>
+                <div class="text-four">From México</div>
+            </div>
+            <div class="button">
+                <a href="#contact">
+                    <button>Contact me</button>
+                </a>
+            </div>
+            <div class="">
+            </div>
+        </div>
+
+
+    </section>
+    <!-- About Section Start -->
+    <section class="about" id="about">
+        <div class="content">
+            <div class="title"><span>About Me</span></div>
+            <div class="about-details">
+                <div class="left">
+                    <img src="images/drawofMe.jpg" alt="Img" />
+                </div>
+                <div class="right">
+                    <div class="topic">Coding Is My Passion</div>
+                    <p>
+                        I'm currently pursuing a bachelors degree in computer systems engineering at "Universidad
+                        Autónoma de Coahuila" ,
+                        currently i try to learn about newer technologies to put myself into date for the work
+                        environment. I'm currently
+                        enrolled in machine learning courses so i can have more experience in the AI area so hopefully
+                        one day i can reach a
+                        master's degree in a related area.
+                    </p>
+                    <div class="button">
+                        <button onclick="confirmDownload()">Download CV</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- My Skill Section Start -->
+    <!-- Section Tag and Other Div will same where we need to put same CSS -->
+    <section class="skills" id="skills">
+        <div class="content">
+            <div class="title"><span>My Skills</span></div>
+            <div class="skills-details">
+                <div class="text">
+                    <div class="topic">Skills Reflects Our Knowledge</div>
+                    <p>Good experience using windows, macOS and linux operating systems,
+                        as well as knowledge in programming languages such as Java, Python, JavaScript and R. I have
+                        created webpages using HTML and CSS with express.js framework.
+                        The usage of database software comes in the way as well with some technologies like MySQL,
+                        MariaDB and Microsoft SQL Server.
+                    </p>
+                    <div class="experience">
+                        <div class="num">1</div>
+                        <div class="exp">
+                            Year to <br />
+                            Graduate
+                        </div>
+                    </div>
+                </div>
+                <div class="boxes">
+                    <div class="box">
+                        <div class="topic">HTML</div>
+                        <div class="per"><i class="fa-brands fa-html5 fa-xl fa-flip"></i></div>
+                    </div>
+                    <div class="box">
+                        <div class="topic">CSS</div>
+                        <div class="per"><i class="fa-brands fa-css3-alt fa-flip fa-xl"></i></div>
+                    </div>
+                    <div class="box">
+                        <div class="topic">JavaScript</div>
+                        <div class="per"><i class="fa-brands fa-js fa-flip fa-xl"></i></div>
+                    </div>
+                    <div class="box">
+                        <div class="topic">Python</div>
+                        <div class="per"><i class="fa-brands fa-python fa-flip fa-xl"></i></div>
+                    </div>
+                    <div class="box">
+                        <div class="topic">Java</div>
+                        <div class="per"><i class="fa-brands fa-java fa-flip fa-xl"></i></div>
+                    </div>
+                    <div class="box">
+                        <div class="topic">MySQL</div>
+                        <div class="per"><i class="fa-solid fa-database fa-flip fa-xl"></i></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- My Services Section Start -->
+    <section class="services" id="services">
+        <div class="content">
+            <div class="title"><span>My Services</span></div>
+            <div class="boxes">
+                <div class="box">
+                    <div class="icon">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <div class="topic">Web Development</div>
+                    <p>Experience creating a web page using express.js with a dedicated database.</p>
+                </div>
+                <div class="box">
+                    <div class="icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="topic">Databases</div>
+                    <p>Ability to generate and look out for needed databases understanding the requirements of a
+                        specific project
+                        or application and choosing the appropriate database solution.</p>
+                </div>
+                <div class="box">
+                    <div class="icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <div class="topic">Backend</div>
+                    <p>Played a role in designing, implementing, and maintaining robust backend architectures for web
+                        applications.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Me section Start -->
+    <section class="contact" id="contact">
+        <div class="content">
+            <div class="title"><span>Contact Me</span></div>
+            <div class="text">
+                <div class="topic">Dare to take the risk?</div>
+                <p>You can contact me via email, or by direct message on my socials.</p>
+                <div class="button">
+                    <a href="mailto:erickuriel238@gmail.com">
+                        <button>Mail</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer Section Start -->
+    <footer>
+        <div class=" text">
+            <span>Created By <a href="#">Erick Ruiz</a> | &#169; All Rights Reserved</span>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
