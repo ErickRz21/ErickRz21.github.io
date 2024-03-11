@@ -5,7 +5,7 @@
   box-sizing: border-box;
   text-decoration: none;
   scroll-behavior: smooth;
-  cursor: url('Images/icons8-circle-15-white.png'), auto;
+  cursor: url('images/icons8-circle-15-white.png'), auto;
 }
 /* Custom Scroll Bar CSS */
 ::-webkit-scrollbar {
