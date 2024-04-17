@@ -48,8 +48,8 @@ function confirmDownload () {
   // If the user confirms, initiate the download
   if (downloadConfirmed) {
     var downloadLink = document.createElement('a')
-    downloadLink.href = 'files/EnglishCV_ErickRuiz.pdf'
-    downloadLink.download = 'EnglishCV_ErickRuiz.pdf'
+    downloadLink.href = 'files/ErickRuiz_EnglishCV.pdf'
+    downloadLink.download = 'ErickRuiz_EnglishCV.pdf'
     document.body.appendChild(downloadLink)
     downloadLink.click()
     document.body.removeChild(downloadLink)
