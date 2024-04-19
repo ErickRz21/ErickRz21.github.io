@@ -52,6 +52,7 @@ nav .navbar .logo a{
   font-size: 35px;
   color: #E02947;
 }
+
 nav.sticky .navbar .logo a{
   color: #fff;
 }
@@ -63,6 +64,7 @@ nav .navbar .menu li{
   list-style: none;
   margin: 0 8px;
 }
+
 .navbar .menu a{
   font-size: 18px;
   font-weight: 500;
@@ -81,7 +83,7 @@ nav.sticky .menu a:hover{
 }
 .navbar .media-icons a{
   color: #E02947;
-  font-size: 18px;
+  font-size: 22px;
   margin: 0 6px;
   transition: all 0.4s ease;
 }
@@ -173,6 +175,7 @@ nav .menu-btn:hover{
   border-color: #E02947;
   background-color: #fff;
   color: #E02947;
+  transform: scale(1.1);
 }
 /* About Section Styling */
 /* Those Elements Where We Have Apply Same CSS,
@@ -267,6 +270,7 @@ section .button button:hover{
   border-color: #E02947;
   background-color: #fff;
   color: #E02947;
+  transform: scale(1.1);
 }
  /* My Skills CSS */
  .skills{
@@ -422,7 +426,7 @@ footer .text span a:hover{
     width: 85%;
   }
 }
-@media (max-width: 1000px) {
+@media (max-width: 1070px) {
   .about .about-details{
     justify-content: center;
     flex-direction: column;
