@@ -26,9 +26,7 @@
   color: #fff;
   background: #CB6778;
 }
-html{
-  overflow: auto;
-}
+
 /* navbar styling */
 nav{
   position: fixed;
@@ -498,6 +496,7 @@ footer .text span a:hover{
   }
   .button button {
     width: 70%;
+    margin-top: 10px;
   }
   .home .text-two{
     font-size: 65px;
