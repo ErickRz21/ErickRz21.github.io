@@ -27,6 +27,10 @@
   background: #CB6778;
 }
 
+html {
+  overflow: auto;
+}
+
 /* navbar styling */
 nav{
   position: fixed;
