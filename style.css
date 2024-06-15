@@ -46,7 +46,7 @@ nav.sticky{
   padding: 13px 0;
 }
 nav .navbar{
-  width: 100%;
+  width: 90%;
   display: flex;
   justify-content: space-between;
   align-items: center;
