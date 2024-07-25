@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;500;600;700&family=Kumbh Sans:wght@400;500;700&display=swap');
 *{
   margin: 0;
   padding: 0;
@@ -26,11 +26,15 @@
   color: #fff;
   background: #CB6778;
 }
-
 html {
   overflow: auto;
 }
-
+button {
+  font-family: 'Kumbh Sans', sans-serif;
+}
+p{
+  font-size: 18px;
+}
 /* navbar styling */
 nav{
   position: fixed;
@@ -38,7 +42,7 @@ nav{
   padding: 20px 0;
   z-index: 998;
   transition: all 0.3s ease-in-out;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Kumbh Sans', sans-serif;
   border-radius: 0 0 10px 10px;
 }
 nav.sticky{
@@ -67,11 +71,11 @@ nav .navbar .menu{
 }
 nav .navbar .menu li{
   list-style: none;
-  margin: 0 8px;
+  margin: 0 10px;
 }
 
 .navbar .menu a{
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 500;
   color: #0E2431;
   padding: 6px 0;
@@ -88,7 +92,7 @@ nav.sticky .menu a:hover{
 }
 .navbar .media-icons a{
   color: #E02947;
-  font-size: 22px;
+  font-size: 25px;
   margin: 0 6px;
   transition: all 0.4s ease-in-out;
 }
@@ -127,11 +131,10 @@ nav .menu-btn:hover{
 .home{
   height: 100vh;
   width: 100%;
-  background: url("images/background.png") no-repeat;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Kumbh Sans', sans-serif;
   background-color: #fff;
 }
 .home .home-content{
@@ -191,7 +194,7 @@ section{
 section .content{
   width: 80%;
   margin: 40px auto;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Kumbh Sans', sans-serif;
 }
 .about .about-details{
   display: flex;
@@ -258,7 +261,7 @@ section  .topic{
   color: #0E2431;
 }
 section .button{
-  margin: 14px 0;
+  margin-top: 20px;
 }
 section .button button{
   outline: none;
@@ -393,7 +396,7 @@ footer{
   background: #E02947;
   padding: 15px 0;
   text-align: center;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Kumbh Sans', sans-serif;
 }
 footer .text span{
   font-size: 17px;
@@ -406,6 +409,10 @@ footer .text span a{
 }
 footer .text span a:hover{
   text-decoration: underline;
+}
+footer p{
+  font-size: 17px;
+  margin-top: 10px;
 }
 /* Scroll TO Top Button CSS */
 .scroll-button a{
