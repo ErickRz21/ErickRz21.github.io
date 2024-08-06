@@ -5,7 +5,6 @@
   box-sizing: border-box;
   text-decoration: none;
   scroll-behavior: smooth;
-  cursor: url('images/icons8-circle-15-white.png'), auto;
 }
 /* Custom Scroll Bar CSS */
 ::-webkit-scrollbar {
@@ -68,6 +67,7 @@ nav.sticky .navbar .logo a{
 nav .navbar .menu{
   display: flex;
   position: relative;
+  cursor: pointer;
 }
 nav .navbar .menu li{
   list-style: none;
@@ -79,7 +79,7 @@ nav .navbar .menu li{
   font-weight: 500;
   color: #0E2431;
   padding: 6px 0;
-  transition: all 0.4s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 .navbar .menu a:hover{
   color: #E02947;
@@ -94,7 +94,7 @@ nav.sticky .menu a:hover{
   color: #E02947;
   font-size: 25px;
   margin: 0 6px;
-  transition: all 0.4s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 nav.sticky .media-icons a{
   color: #FFF;
@@ -125,6 +125,15 @@ nav .menu-btn:hover{
 }
 .navbar .menu .menu-btn{
   color: #fff;
+}
+
+i.fas.fa-bars {
+  margin: 5px;
+  cursor: pointer;
+}
+
+i.fas.fa-bars::after {
+  margin-bottom: 50px;
 }
 
 /* home section styling */
@@ -177,7 +186,7 @@ nav .menu-btn:hover{
   background: #E02947;
   color: #fff;
   border: 2px solid transparent;
-  transition: all 0.4s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 .home .button button:hover{
   border-color: #E02947;
@@ -242,7 +251,7 @@ section .title span::after{
 .about .left a{
   margin: 30px 0;
   color: #E02947;
-  transition: all 0.4s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 .about .left a:hover{
   color: #0E2431;
@@ -272,7 +281,7 @@ section .button button{
   background: #E02947;
   color: #fff;
   border: 2px solid transparent;
-  transition: all 0.4s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 section .button button:hover{
   border-color: #E02947;
@@ -347,7 +356,7 @@ section .button button:hover{
   border-radius: 12px;
   padding: 30px 10px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
-  transition: all 0.4s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 .services .boxes .box:hover{
   background: #E02947;
@@ -363,7 +372,7 @@ section .button button:hover{
   font-size: 18px;
   color: #fff;
   margin: 0 auto 10px auto;
-  transition: all 0.4s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 .boxes .box:hover .icon{
   background-color: #fff;
@@ -372,7 +381,7 @@ section .button button:hover{
 .services .boxes .box:hover .topic,
 .services .boxes .box:hover p{
   color: #0E2431;
-  transition: all 0.4s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 .services .boxes .box:hover .topic,
 .services .boxes .box:hover p{
@@ -426,7 +435,7 @@ footer p{
   border-radius: 6px;
   box-shadow: rgba(0, 0, 0, 0.15);
   display: none;
-  transition: all 0.4s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .scroll-button a:hover{
@@ -482,7 +491,7 @@ footer p{
     padding-top: 60px;
     flex-direction: column;
     align-items: center;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.3s ease-in-out;
   }
   .navbar.active .menu{
     left: 0;
@@ -509,6 +518,7 @@ footer p{
   .button button {
     width: 70%;
     margin-top: 10px;
+    cursor: pointer;
   }
   .home .text-two{
     font-size: 65px;
