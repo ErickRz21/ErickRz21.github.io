@@ -30,6 +30,7 @@ html {
 }
 button {
   font-family: 'Kumbh Sans', sans-serif;
+  cursor: pointer;
 }
 p{
   font-size: 18px;
