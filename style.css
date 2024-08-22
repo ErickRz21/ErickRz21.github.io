@@ -11,19 +11,22 @@
     width: 10px;
 }
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: #B6BBC4;
 }
 ::-webkit-scrollbar-thumb {
-    background: #CB6778;
+    background: #31304D;
     border-radius: 12px;
     transition: all 0.3s ease;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: #E02947;
+    background: #615EFC;
 }
 ::selection {
   color: #fff;
-  background: #CB6778;
+  background: #615EFC;
+}
+body{
+  background: #161A30;
 }
 html {
   overflow: auto;
@@ -46,8 +49,9 @@ nav{
   border-radius: 0 0 10px 10px;
 }
 nav.sticky{
-  background: #E02947;
+  background: #161A30;
   padding: 13px 0;
+  border-bottom: #615EFC 3px solid;
 }
 nav .navbar{
   width: 90%;
@@ -59,11 +63,12 @@ nav .navbar{
 nav .navbar .logo a{
   font-weight: 500;
   font-size: 35px;
-  color: #E02947;
-}
-
-nav.sticky .navbar .logo a{
   color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+nav.sticky .navbar .logo a{
+  color: #615EFC;
+  transition: all 0.3s ease-in-out;
 }
 nav .navbar .menu{
   display: flex;
@@ -74,35 +79,38 @@ nav .navbar .menu li{
   list-style: none;
   margin: 0 10px;
 }
-
 .navbar .menu a{
   font-size: 20px;
   font-weight: 500;
-  color: #0E2431;
+  color: #615EFC;
   padding: 6px 0;
   transition: all 0.3s ease-in-out;
 }
 .navbar .menu a:hover{
-  color: #E02947;
+  color: #fff;
 }
 nav.sticky .menu a{
-  color: #FFF;
+  color: #fff;
 }
 nav.sticky .menu a:hover{
-  color: #0E2431;
+  color: #615EFC;
 }
 .navbar .media-icons a{
-  color: #E02947;
+  color: #fff;
   font-size: 25px;
   margin: 0 6px;
   transition: all 0.3s ease-in-out;
 }
 nav.sticky .media-icons a{
-  color: #FFF;
+  color: #fff;
+}
+
+nav.sticky .media-icons a:hover {
+  color: #615EFC;
 }
 
 .navbar .media-icons a:hover{
-  color: #0E2431;
+  color: #615EFC;
 }
 /* Side Navigation Menu Button CSS */
 nav .menu-btn,
@@ -116,13 +124,13 @@ nav .menu-btn,
   display: none;
 }
 nav .menu-btn{
-  color: #E02947;
+  color: #fff;
 }
 nav.sticky .menu-btn{
   color: #FFF;
 }
 nav .menu-btn:hover{
-  color: #0E2431;
+  color: #615EFC;
 }
 .navbar .menu .menu-btn{
   color: #fff;
@@ -145,7 +153,7 @@ i.fas.fa-bars::after {
   background-position: center;
   background-attachment: fixed;
   font-family: 'Kumbh Sans', sans-serif;
-  background-color: #fff;
+  background-color: #161A30;
 }
 .home .home-content{
   width: 90%;
@@ -157,10 +165,10 @@ i.fas.fa-bars::after {
 }
 .home .text-one{
   font-size: 25px;
-  color: #0E2431;
+  color: #B6BBC4;
 }
 .home .text-two{
-  color: #0E2431;
+  color: #fff;
   font-size: 75px;
   font-weight: 600;
   margin-left: -3px;
@@ -168,12 +176,12 @@ i.fas.fa-bars::after {
 .home .text-three{
   font-size: 40px;
   margin: 5px 0;
-  color: #E02947;
+  color: #615EFC;
 }
 .home .text-four{
   font-size: 23px;
   margin: 5px 0;
-  color: #0E2431;
+  color: #B6BBC4;
 }
 .home .button{
   margin: 14px 0;
@@ -184,15 +192,15 @@ i.fas.fa-bars::after {
   border-radius: 6px;
   font-size: 25px;
   font-weight: 400;
-  background: #E02947;
+  background: #31304D;
   color: #fff;
   border: 2px solid transparent;
   transition: all 0.3s ease-in-out;
 }
 .home .button button:hover{
-  border-color: #E02947;
-  background-color: #fff;
-  color: #E02947;
+  border-color: #B6BBC4;
+  background: #31304D;
+  color: #fff;
   transform: scale(1.1);
 }
 /* About Section Styling */
@@ -217,7 +225,7 @@ section .title{
   margin-bottom: 40px;
 }
 section .title span{
-  color: #0E2431;
+  color: #fff;
   font-size: 30px;
   font-weight: 600;
   position: relative;
@@ -229,7 +237,7 @@ section .title span::after{
   position: absolute;
   height: 3px;
   width: 100%;
-  background: #E02947;
+  background: #615EFC;
   left: 0;
   bottom: 0;
 }
@@ -251,24 +259,24 @@ section .title span::after{
 }
 .about .left a{
   margin: 30px 0;
-  color: #E02947;
+  color: #615EFC;
   transition: all 0.3s ease-in-out;
 }
 .about .left a:hover{
-  color: #0E2431;
+  color: #fff;
 }
 .about-details .right{
   width: 55%;
 }
 section  .topic{
-  color: #0E2431;
+  color: #615EFC;
   font-size: 25px;
   font-weight: 500;
   margin-bottom: 10px;
 }
 .about-details .right p{
   text-align: justify;
-  color: #0E2431;
+  color: #fff;
 }
 section .button{
   margin-top: 20px;
@@ -279,21 +287,18 @@ section .button button{
   border-radius: 6px;
   font-size: 25px;
   font-weight: 400;
-  background: #E02947;
+  background: #31304D;
   color: #fff;
   border: 2px solid transparent;
   transition: all 0.3s ease-in-out;
 }
 section .button button:hover{
-  border-color: #E02947;
-  background-color: #fff;
-  color: #E02947;
+  border-color: #B6BBC4;
+    background: #31304D;
+    color: #fff;
   transform: scale(1.1);
 }
  /* My Skills CSS */
- .skills{
-   background: #FAF0F1;
- }
  .skills .content{
    padding: 40px 0;
  }
@@ -306,7 +311,7 @@ section .button button:hover{
    width: 50%;
  }
  .skills-details p{
-   color: #0E2431;
+   color: #fff;
    text-align: justify;
  }
 .skills .skills-details .experience{
@@ -315,11 +320,11 @@ section .button button:hover{
   margin: 0 10px;
 }
 .skills-details .experience .num{
-  color: #0E2431;
+  color: #fff;
   font-size: 80px;
 }
 .skills-details .experience .exp{
-  color: #0E2431;
+  color: #fff;
   margin-left: 20px;
   font-size: 18px;
   font-weight: 500;
@@ -338,11 +343,11 @@ section .button button:hover{
 }
 .skills-details .boxes .topic{
   font-size: 20px;
-  color: #E02947;
+  color: #fff;
 }
 .skills-details .boxes .per{
   font-size: 60px;
-  color: #E02947;
+  color: #615EFC;
 }
 /* My Services CSS */
 .services .boxes{
@@ -358,15 +363,18 @@ section .button button:hover{
   padding: 30px 10px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
   transition: all 0.3s ease-in-out;
+  background: #31304D;
+  color: #B6BBC4;
 }
 .services .boxes .box:hover{
-  background: #E02947;
+  border: #B6BBC4 2px solid;
   color: #fff;
+  transform: scale(1.1);
 }
 .services .boxes .box .icon{
   height: 50px;
   width: 50px;
-  background: #E02947;
+  background: #615EFC;
   border-radius: 50%;
   text-align: center;
   line-height: 50px;
@@ -377,21 +385,14 @@ section .button button:hover{
 }
 .boxes .box:hover .icon{
   background-color: #fff;
-  color: #E02947;
-}
-.services .boxes .box:hover .topic,
-.services .boxes .box:hover p{
-  color: #0E2431;
-  transition: all 0.3s ease-in-out;
+  color: #615EFC;
 }
 .services .boxes .box:hover .topic,
 .services .boxes .box:hover p{
   color: #fff;
+  transition: all 0.3s ease-in-out;
 }
 /* Contact Me CSS */
-.contact{
-  background: #FAF0F1;
-}
 .contact .content{
   margin: 0 auto;
   padding: 30px 0;
@@ -401,9 +402,13 @@ section .button button:hover{
   text-align: center;
   margin: auto;
 }
+.contact p{
+  color: #fff;
+  margin-top: 10px;
+}
 /* Footer CSS */
 footer{
-  background: #E02947;
+  background: #31304D;
   padding: 15px 0;
   text-align: center;
   font-family: 'Kumbh Sans', sans-serif;
@@ -430,7 +435,7 @@ footer p{
   bottom: 20px;
   right: 20px;
   color: #fff;
-  background: #E02947;
+  background: #31304D;
   padding: 7px 12px;
   font-size: 18px;
   border-radius: 6px;
@@ -440,7 +445,7 @@ footer p{
 }
 
 .scroll-button a:hover{
-  color: #0E2431;
+  color: #615EFC;
 }
 
 /* Responsive Media Query */
@@ -485,7 +490,7 @@ footer p{
     position: fixed;
     left: -100%;
     top: 0;
-    background: #310e0e;
+    background: #31304D;
     height: 100vh;
     max-width: 400px;
     width: 100%;
@@ -500,11 +505,8 @@ footer p{
   nav .navbar .menu a{
     font-size: 23px;
     display: block;
-    color: #fff;
     margin: 10px 0;
-  }
-  nav.sticky .menu a:hover{
-    color: #E02947;
+    color: #FFF;
   }
   nav .navbar .media-icons{
     display: none;
@@ -560,7 +562,6 @@ footer p{
   }
   .skills-details .boxes .per{
     font-size: 50px;
-    color: #E02947;
   }
 }
 
