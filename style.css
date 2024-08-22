@@ -46,12 +46,12 @@ nav{
   z-index: 998;
   transition: all 0.3s ease-in-out;
   font-family: 'Kumbh Sans', sans-serif;
-  border-radius: 0 0 10px 10px;
 }
 nav.sticky{
   background: #161A30;
   padding: 13px 0;
   border-bottom: #615EFC 3px solid;
+  transition: all 0.3s ease-in-out;
 }
 nav .navbar{
   width: 90%;
@@ -60,16 +60,34 @@ nav .navbar{
   align-items: center;
   margin: auto;
 }
-nav .navbar .logo a{
-  font-weight: 500;
-  font-size: 35px;
+nav .navbar .logo a {
+  font-weight: 600; /* Slightly bolder for emphasis */
+  font-size: 36px; /* Slightly larger for better visibility */
   color: #fff;
   transition: all 0.3s ease-in-out;
+  position: relative; /* Prepare for additional styling */
 }
-nav.sticky .navbar .logo a{
-  color: #615EFC;
-  transition: all 0.3s ease-in-out;
+
+nav .navbar .logo a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px; /* Adjusts the line below the text */
+  width: 0;
+  height: 3px;
+  background-color: #615EFC; /* Underline color matching your primary color */
+  transition: width 0.3s ease-in-out;
 }
+
+nav .navbar .logo a:hover::after {
+  width: 100%; /* Expands underline on hover */
+}
+
+nav .navbar .logo a:hover {
+  color: #615EFC; /* Changes text color on hover to match the underline */
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
 nav .navbar .menu{
   display: flex;
   position: relative;
@@ -82,17 +100,11 @@ nav .navbar .menu li{
 .navbar .menu a{
   font-size: 20px;
   font-weight: 500;
-  color: #615EFC;
+  color: #fff;
   padding: 6px 0;
   transition: all 0.3s ease-in-out;
 }
 .navbar .menu a:hover{
-  color: #fff;
-}
-nav.sticky .menu a{
-  color: #fff;
-}
-nav.sticky .menu a:hover{
   color: #615EFC;
 }
 .navbar .media-icons a{
@@ -101,14 +113,6 @@ nav.sticky .menu a:hover{
   margin: 0 6px;
   transition: all 0.3s ease-in-out;
 }
-nav.sticky .media-icons a{
-  color: #fff;
-}
-
-nav.sticky .media-icons a:hover {
-  color: #615EFC;
-}
-
 .navbar .media-icons a:hover{
   color: #615EFC;
 }
