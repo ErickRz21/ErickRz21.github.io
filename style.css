@@ -28,6 +28,7 @@
 body{
   background: #161A30;
   user-select: none;
+  overflow-x: hidden;
 }
 html {
   overflow: auto;
@@ -372,7 +373,7 @@ section .button button:hover{
   border-radius: 20px;
   padding: 30px 20px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  transition: all 0.4s ease;
+  transition: all 0.3s ease-in-out;
   background: linear-gradient(135deg, #3A3A76, #27264C);
   color: #D1D5DB;
   overflow: hidden;
@@ -388,7 +389,7 @@ section .button button:hover{
   height: 100%;
   background: rgba(255, 255, 255, 0.1);
   transform: skewX(45deg);
-  transition: all 0.4s ease;
+  transition: all 0.3s ease-in-out;
 }
 
 .services .boxes .box:hover:before {
@@ -398,7 +399,7 @@ section .button button:hover{
 .services .boxes .box:hover {
   border: 2px solid #D1D5DB;
   color: #fff;
-  transform: translateY(-10px);
+  transform: scale(1.1);
 }
 
 .services .boxes .box .icon {
@@ -411,18 +412,18 @@ section .button button:hover{
   font-size: 24px;
   color: #fff;
   margin: 0 auto 15px auto;
-  transition: all 0.4s ease;
+  transition: all 0.3s ease-in-out;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .services .boxes .box:hover .icon {
   background-color: #fff;
-  color: #6E64E7;
+  color: #3A3A76;
 }
 
 .services .boxes .box .topic,
 .services .boxes .box p {
-  transition: all 0.4s ease;
+  transition: all 0.3s ease-in-out;
 }
 
 .services .boxes .box:hover .topic,
@@ -445,72 +446,106 @@ section .button button:hover{
 }
 
 /* Projects CSS */
-/* Carousel container */
+/* Carousel */
 .projects .text{
   color: #fff;
 }
 
-.carousel {
-  overflow: hidden;
-  position: relative;
-  width: 100%;
+/* Better slider */
+:root {
+  --slider-size: min(100%, 300px);
+  --slider-border-radius: 20px;
+  --slider-fullbleed-gap: 8px;
 }
 
-/* Carousel track */
-.carousel-track {
+.slider {
+  margin-top: 25px;
   display: flex;
-  transition: transform 0.5s ease-in-out;
-}
-
-/* Carousel items */
-/* Carousel container */
-.carousel {
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-  padding-top: 20px;
-  /* Adjust padding if needed */
-}
-
-/* Carousel track */
-.carousel-track {
-  display: flex;
+  overflow-x: scroll;
   scroll-snap-type: x mandatory;
-  overflow-x: auto;
   scroll-behavior: smooth;
-  width: 100%;
-  /* Ensure spacing between items */
+  width: var(--slider-size);
+  border-radius: var(--slider-border-radius);
+  scrollbar-width: none;
 }
 
-.carousel-track::-webkit-scrollbar {
+/* Hide Scrollbar itself */
+.slider {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.slider::-webkit-scrollbar {
   display: none;
 }
 
-/* Carousel items */
-.carousel-item {
-    flex-shrink: 0;
-    width: calc(40% - 10px);  /* Ensure the item takes up full width minus the gap */
-    margin-right: 8px;
-    box-sizing: border-box;
-    border-radius: 20px;
-    overflow: hidden;
-    transition: transform 0.4s ease-out, box-shadow 0.4s ease-out, opacity 0.4s ease-out, border 0.4s ease-out;
-    scroll-snap-align: center;
+.slidewrapper {
+  scroll-snap-align: center;
+  /* Size me */
+  flex: 0 0 var(--slider-size);
+  width: var(--slider-size);
+  max-width: 100%;
+  /* This is needed for the paddings (in the full-bleed variant) to work …*/
+  box-sizing: content-box;
+  display: flex;
+  transition: all 0.5s ease-in-out;
 }
 
-.carousel-item img {
+.slide {
+  flex: 1;
+  /* Give me some height */
+  width: calc(100% - 20px);
+  height: calc(102% - 10px);
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.slide img {
   width: 100%;
-  display: block;
-  /* Ensure the image matches the container rounding */
+  height: 100%;
+  object-fit: cover;
 }
 
-.carousel-item:hover {
-  opacity: 90%;
-  border: solid 2px #ffffff;
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+.slide:hover {
+  border: #fff solid 2px;
+  opacity: 80%;
 }
-.carousel-item:active {
+
+.slide:active {
   transform: scale(98%);
+}
+
+/* Distance between start page */
+.full-bleed {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  transform: translateX(0);
+}
+
+/* Put border-radius on the individual slides, not the slider-container */
+.slider.full-bleed {
+  border-radius: 0;
+}
+
+.slider.full-bleed .slide {
+  border-radius: var(--slider-border-radius);
+}
+
+/* Add a faux gap between the slidewrappers */
+.slider.full-bleed .slidewrapper {
+  margin-right: var(--slider-fullbleed-gap);
+}
+
+/* Offset first slidewrapper from the left so that it apppears centered on load */
+.slider.full-bleed .slidewrapper:first-child {
+  padding-left: 10vw;
+}
+
+/* Offset last slidewrapper so that it apppears centered when at the last item */
+/* Note that margin-right won't work …*/
+.slider.full-bleed .slidewrapper:last-child {
+  margin-right: 0;
+  padding-right: calc(50vw - (var(--slider-size) / 2));
 }
 
 /* Footer CSS */
@@ -602,9 +637,6 @@ footer p:hover {
     height: 350px;
     width: 350px;
   }
-  .carousel-item {
-    width: calc(50% - 10px);
-  }
 }
 @media (max-width: 750px) {
   nav .navbar{
@@ -680,9 +712,6 @@ footer p:hover {
   .contact .text{
     width: 100%;
 }
-.carousel-item {
-  width: calc(80% - 10px);
-}
 }
 @media (max-width: 500px){
   section{
@@ -697,11 +726,4 @@ footer p:hover {
   .skills-details .boxes .per{
     font-size: 50px;
   }
-  .carousel-track{
-    overflow-x: unset;
-  }
-  .carousel-item{
-    width: calc(85% - 10px);
-  }
 }
-
