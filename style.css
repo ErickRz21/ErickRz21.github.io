@@ -27,6 +27,7 @@
 }
 body{
   background: #161A30;
+  user-select: none;
 }
 html {
   overflow: auto;
@@ -211,7 +212,7 @@ i.fas.fa-bars::after {
 /* Those Elements Where We Have Apply Same CSS,
  I'm Selecting Directly 'Section Tag' and 'Class'  */
 section{
-  padding-top: 40px;
+  padding-top: 20px;
 }
 section .content{
   width: 80%;
@@ -258,8 +259,12 @@ section .title span::after{
   height: 400px;
   width: 400px;
   object-fit: cover;
-  border-radius: 12px;
-  border: 2px solid #0E2431;
+  border-radius: 20px;
+  border: #615EFC solid 3px;
+  transition: all 0.3s ease-in-out;
+}
+.about .left img:hover {
+  border: #FFF solid 2px;
 }
 .about .left a{
   margin: 30px 0;
@@ -354,47 +359,75 @@ section .button button:hover{
   color: #615EFC;
 }
 /* My Services CSS */
-.services .boxes{
+.services .boxes {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
-.services .boxes .box{
+
+.services .boxes .box {
   margin: 20px 0;
   width: calc(100% / 3 - 20px);
   text-align: center;
-  border-radius: 12px;
-  padding: 30px 10px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
-  transition: all 0.3s ease-in-out;
-  background: #31304D;
-  color: #B6BBC4;
+  border-radius: 20px;
+  padding: 30px 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: all 0.4s ease;
+  background: linear-gradient(135deg, #3A3A76, #27264C);
+  color: #D1D5DB;
+  overflow: hidden;
+  position: relative;
 }
-.services .boxes .box:hover{
-  border: #B6BBC4 2px solid;
+
+.services .boxes .box:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: skewX(45deg);
+  transition: all 0.4s ease;
+}
+
+.services .boxes .box:hover:before {
+  left: 100%;
+}
+
+.services .boxes .box:hover {
+  border: 2px solid #D1D5DB;
   color: #fff;
-  transform: scale(1.1);
+  transform: translateY(-10px);
 }
-.services .boxes .box .icon{
-  height: 50px;
-  width: 50px;
-  background: #615EFC;
+
+.services .boxes .box .icon {
+  height: 60px;
+  width: 60px;
+  background: linear-gradient(135deg, #6E64E7, #4B49C8);
   border-radius: 50%;
   text-align: center;
-  line-height: 50px;
-  font-size: 18px;
+  line-height: 60px;
+  font-size: 24px;
   color: #fff;
-  margin: 0 auto 10px auto;
-  transition: all 0.3s ease-in-out;
+  margin: 0 auto 15px auto;
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-.boxes .box:hover .icon{
+
+.services .boxes .box:hover .icon {
   background-color: #fff;
-  color: #615EFC;
+  color: #6E64E7;
 }
+
+.services .boxes .box .topic,
+.services .boxes .box p {
+  transition: all 0.4s ease;
+}
+
 .services .boxes .box:hover .topic,
-.services .boxes .box:hover p{
+.services .boxes .box:hover p {
   color: #fff;
-  transition: all 0.3s ease-in-out;
 }
 /* Contact Me CSS */
 .contact .content{
@@ -410,6 +443,71 @@ section .button button:hover{
   color: #fff;
   margin-top: 10px;
 }
+
+/* Projects CSS */
+/* Carousel container */
+.carousel {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+/* Carousel track */
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Carousel items */
+/* Carousel container */
+.carousel {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  padding: 10px 0;
+  /* Adjust padding if needed */
+}
+
+/* Carousel track */
+.carousel-track {
+  display: flex;
+  transition: transform 0.3s cubic-bezier( 0.455, 0.03, 0.515, 0.955);
+  will-change: transform;
+  cursor: grab;
+  /* Ensure spacing between items */
+}
+
+.carousel-track.grabbing .carousel-item {
+  pointer-events: none;
+  /* Prevents interaction during drag */
+}
+
+/* Carousel items */
+.carousel-item {
+    flex-shrink: 0;
+    width: calc(40% - 10px);  /* Ensure the item takes up full width minus the gap */
+    margin-right: 10px;  /* Adjust margin if needed */
+    box-sizing: border-box;
+    border-radius: 20px;
+    overflow: hidden;
+    user-select: none;  /* Prevents text selection on drag */
+    transition: all 0.2s ease-out;
+}
+
+.carousel-item img {
+  width: 100%;
+  display: block;
+  /* Ensure the image matches the container rounding */
+}
+
+.carousel-item:hover {
+  opacity: 90%;
+  /* Slight hover effect for interactivity */
+}
+.carousel-item:active {
+  transform: scale(98%);
+}
+
 /* Footer CSS */
 footer{
   background: #31304D;
@@ -485,6 +583,9 @@ footer p{
     height: 350px;
     width: 350px;
   }
+  .carousel-item {
+    width: calc(50% - 10px);
+  }
 }
 @media (max-width: 750px) {
   nav .navbar{
@@ -556,8 +657,14 @@ footer p{
   .contact .text{
     width: 100%;
 }
+.carousel-item {
+  width: calc(90% - 10px);
+}
 }
 @media (max-width: 500px){
+  section{
+    padding-top: 0;
+  }
   .home .text-two{
     font-size: 55px;
   }
@@ -566,6 +673,9 @@ footer p{
   }
   .skills-details .boxes .per{
     font-size: 50px;
+  }
+  .carousel-item{
+    width: calc(80% - 10px);
   }
 }
 

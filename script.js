@@ -55,3 +55,111 @@ function confirmDownload () {
     document.body.removeChild(downloadLink)
   }
 }
+
+const track = document.querySelector('.carousel-track');
+const items = document.querySelectorAll('.carousel-item');
+let currentIndex = 0;
+let isDragging = false;
+let startX = 0;
+let currentTranslate = 0;
+let prevTranslate = 0;
+let animationID;
+let startTime;
+
+track.addEventListener('mousedown', (e) => {
+    e.preventDefault();  // Prevent default image drag behavior
+    startDrag(e.pageX);
+});
+
+track.addEventListener('mousemove', (e) => {
+    if (isDragging) {
+        const currentPosition = e.pageX;
+        moveSlider(currentPosition);
+    }
+});
+
+track.addEventListener('mouseup', () => {
+    endDrag();
+});
+
+track.addEventListener('mouseleave', () => {
+    if (isDragging) {
+        endDrag();
+    }
+});
+
+// Touch events for mobile
+track.addEventListener('touchstart', (e) => {
+    startDrag(e.touches[0].clientX);
+});
+
+track.addEventListener('touchmove', (e) => {
+    if (isDragging) {
+        const currentPosition = e.touches[0].clientX;
+        moveSlider(currentPosition);
+    }
+});
+
+track.addEventListener('touchend', () => {
+    endDrag();
+});
+
+function startDrag(position) {
+    isDragging = true;
+    startX = position;
+    startTime = Date.now(); // Track the start time to differentiate between click and drag
+    prevTranslate = currentTranslate;
+    animationID = requestAnimationFrame(animation);
+    track.style.cursor = 'grabbing'; // Change cursor to grabbing
+    track.style.transition = 'none'; // Disable transition while dragging
+}
+
+function moveSlider(currentPosition) {
+    if (!isDragging) return;
+    const dragDistance = currentPosition - startX;
+    currentTranslate = prevTranslate + dragDistance;
+    setSliderPosition();
+}
+
+function endDrag() {
+    cancelAnimationFrame(animationID);
+    isDragging = false;
+    track.style.cursor = 'grab'; // Reset cursor
+
+    const movedBy = currentTranslate - prevTranslate;
+    const timeTaken = Date.now() - startTime; // Calculate the duration of the drag
+
+    if (timeTaken < 150 && Math.abs(movedBy) < 5) {
+        // If the movement was very quick and small, treat it as a click and not a drag
+        return;
+    }
+
+    if (movedBy < -50 && currentIndex < items.length - 1) {
+        currentIndex += 1;
+    }
+
+    if (movedBy > 50 && currentIndex > 0) {
+        currentIndex -= 1;
+    }
+
+    setPositionByIndex();
+}
+
+function animation() {
+    setSliderPosition();
+    if (isDragging) requestAnimationFrame(animation);
+}
+
+function setSliderPosition() {
+    track.style.transform = `translateX(${currentTranslate}px)`;
+}
+
+function setPositionByIndex() {
+    currentTranslate = currentIndex * -items[0].clientWidth;
+    prevTranslate = currentTranslate;
+    track.style.transition = 'transform 0.3s ease-out';
+    setSliderPosition();
+    setTimeout(() => {
+        track.style.transition = ''; // Remove transition after animation ends
+    }, 300);
+}
