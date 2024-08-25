@@ -56,6 +56,7 @@ function confirmDownload () {
   }
 }
 
+// Touch slider
 const track = document.querySelector('.carousel-track');
 const items = document.querySelectorAll('.carousel-item');
 let currentIndex = 0;
@@ -65,28 +66,6 @@ let currentTranslate = 0;
 let prevTranslate = 0;
 let animationID;
 let startTime;
-
-track.addEventListener('mousedown', (e) => {
-    e.preventDefault();  // Prevent default image drag behavior
-    startDrag(e.pageX);
-});
-
-track.addEventListener('mousemove', (e) => {
-    if (isDragging) {
-        const currentPosition = e.pageX;
-        moveSlider(currentPosition);
-    }
-});
-
-track.addEventListener('mouseup', () => {
-    endDrag();
-});
-
-track.addEventListener('mouseleave', () => {
-    if (isDragging) {
-        endDrag();
-    }
-});
 
 // Touch events for mobile
 track.addEventListener('touchstart', (e) => {
@@ -110,7 +89,6 @@ function startDrag(position) {
     startTime = Date.now(); // Track the start time to differentiate between click and drag
     prevTranslate = currentTranslate;
     animationID = requestAnimationFrame(animation);
-    track.style.cursor = 'grabbing'; // Change cursor to grabbing
     track.style.transition = 'none'; // Disable transition while dragging
 }
 
@@ -124,7 +102,6 @@ function moveSlider(currentPosition) {
 function endDrag() {
     cancelAnimationFrame(animationID);
     isDragging = false;
-    track.style.cursor = 'grab'; // Reset cursor
 
     const movedBy = currentTranslate - prevTranslate;
     const timeTaken = Date.now() - startTime; // Calculate the duration of the drag
@@ -136,9 +113,7 @@ function endDrag() {
 
     if (movedBy < -50 && currentIndex < items.length - 1) {
         currentIndex += 1;
-    }
-
-    if (movedBy > 50 && currentIndex > 0) {
+    } else if (movedBy > 50 && currentIndex > 0) {
         currentIndex -= 1;
     }
 
@@ -157,9 +132,9 @@ function setSliderPosition() {
 function setPositionByIndex() {
     currentTranslate = currentIndex * -items[0].clientWidth;
     prevTranslate = currentTranslate;
-    track.style.transition = 'transform 0.3s ease-out';
+    track.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
     setSliderPosition();
     setTimeout(() => {
         track.style.transition = ''; // Remove transition after animation ends
-    }, 300);
+    }, 500); // Adjust to match transition duration
 }

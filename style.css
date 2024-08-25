@@ -446,6 +446,10 @@ section .button button:hover{
 
 /* Projects CSS */
 /* Carousel container */
+.projects .text{
+  color: #fff;
+}
+
 .carousel {
   overflow: hidden;
   position: relative;
@@ -464,34 +468,34 @@ section .button button:hover{
   overflow: hidden;
   position: relative;
   width: 100%;
-  padding: 10px 0;
+  padding-top: 20px;
   /* Adjust padding if needed */
 }
 
 /* Carousel track */
 .carousel-track {
   display: flex;
-  transition: transform 0.3s cubic-bezier( 0.455, 0.03, 0.515, 0.955);
-  will-change: transform;
-  cursor: grab;
+  scroll-snap-type: x mandatory;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  width: 100%;
   /* Ensure spacing between items */
 }
 
-.carousel-track.grabbing .carousel-item {
-  pointer-events: none;
-  /* Prevents interaction during drag */
+.carousel-track::-webkit-scrollbar {
+  display: none;
 }
 
 /* Carousel items */
 .carousel-item {
     flex-shrink: 0;
     width: calc(40% - 10px);  /* Ensure the item takes up full width minus the gap */
-    margin-right: 10px;  /* Adjust margin if needed */
+    margin-right: 8px;
     box-sizing: border-box;
     border-radius: 20px;
     overflow: hidden;
-    user-select: none;  /* Prevents text selection on drag */
-    transition: all 0.2s ease-out;
+    transition: transform 0.4s ease-out, box-shadow 0.4s ease-out, opacity 0.4s ease-out, border 0.4s ease-out;
+    scroll-snap-align: center;
 }
 
 .carousel-item img {
@@ -502,7 +506,8 @@ section .button button:hover{
 
 .carousel-item:hover {
   opacity: 90%;
-  /* Slight hover effect for interactivity */
+  border: solid 2px #ffffff;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
 }
 .carousel-item:active {
   transform: scale(98%);
@@ -658,7 +663,7 @@ footer p{
     width: 100%;
 }
 .carousel-item {
-  width: calc(90% - 10px);
+  width: calc(80% - 10px);
 }
 }
 @media (max-width: 500px){
@@ -674,8 +679,11 @@ footer p{
   .skills-details .boxes .per{
     font-size: 50px;
   }
+  .carousel-track{
+    overflow-x: unset;
+  }
   .carousel-item{
-    width: calc(80% - 10px);
+    width: calc(85% - 10px);
   }
 }
 
