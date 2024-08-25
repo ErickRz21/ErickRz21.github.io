@@ -63,7 +63,7 @@ nav .navbar{
 }
 nav .navbar .logo a {
   font-weight: 600; /* Slightly bolder for emphasis */
-  font-size: 36px; /* Slightly larger for better visibility */
+  font-size: 32px; /* Slightly larger for better visibility */
   color: #fff;
   transition: all 0.3s ease-in-out;
   position: relative; /* Prepare for additional styling */
@@ -514,27 +514,41 @@ section .button button:hover{
 }
 
 /* Footer CSS */
-footer{
-  background: #31304D;
-  padding: 15px 0;
+footer {
+  background: linear-gradient(135deg, #3A3A76, #1C1B35);
+  padding: 20px 0;
   text-align: center;
   font-family: 'Kumbh Sans', sans-serif;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.5);
 }
-footer .text span{
-  font-size: 17px;
+
+footer .text span {
+  font-size: 18px;
   font-weight: 400;
   color: #fff;
+  transition: color 0.3s ease;
 }
-footer .text span a{
+
+footer .text span a {
   font-weight: 500;
-  color: #FFF;
+  color: #615EFC;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
 }
-footer .text span a:hover{
+
+footer .text span a:hover {
+  color: #FF6F61;
   text-decoration: underline;
 }
-footer p{
-  font-size: 17px;
-  margin-top: 10px;
+
+footer p {
+  font-size: 16px;
+  margin-top: 15px;
+  color: #ccc;
+}
+
+footer p:hover {
+  color: #fff;
+  transition: color 0.3s ease;
 }
 /* Scroll TO Top Button CSS */
 .scroll-button a{
@@ -595,20 +609,24 @@ footer p{
 @media (max-width: 750px) {
   nav .navbar{
     width: 90%;
+    
   }
-  nav .navbar .menu{
-    position: fixed;
-    left: -100%;
-    top: 0;
-    background: #31304D;
-    height: 100vh;
-    max-width: 400px;
-    width: 100%;
-    padding-top: 60px;
-    flex-direction: column;
-    align-items: center;
-    transition: all 0.3s ease-in-out;
-  }
+  nav .navbar .menu {
+  position: fixed;
+  left: -100%;
+  top: 0;
+  background: linear-gradient(135deg, #615EFC, #1C1B35);
+  height: 100vh;
+  max-width: 400px;
+  width: 100%;
+  padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  box-shadow: 2px 0 15px rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+}
   .navbar.active .menu{
     left: 0;
   }
