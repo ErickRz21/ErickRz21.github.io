@@ -360,7 +360,7 @@ section .button button:hover{
 .services .boxes {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .services .boxes .box {
@@ -396,7 +396,7 @@ section .button button:hover{
 .services .boxes .box:hover {
   border: 2px solid #D1D5DB;
   color: #fff;
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .services .boxes .box .icon {
@@ -450,13 +450,13 @@ section .button button:hover{
 
 /* Better slider */
 :root {
-  --slider-size: min(100%, 300px);
+  --slider-size: min(100%, 400px);
   --slider-border-radius: 20px;
-  --slider-fullbleed-gap: 8px;
+  --slider-fullbleed-gap: 6px;
 }
 
 .slider {
-  margin-top: 25px;
+  margin-top: 50px;
   display: flex;
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
@@ -491,20 +491,20 @@ section .button button:hover{
 .slide {
   flex: 1;
   /* Give me some height */
-  width: calc(100% - 20px);
-  height: calc(102% - 10px);
+  height: calc(100% - 10px);
   overflow: hidden;
   transition: all 0.3s ease-in-out;
+  border: #31304D solid 1px;
 }
 
 .slide img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit:cover;
 }
 
 .slide:hover {
-  border: #fff solid 2px;
+  border: #fff solid 1px;
   opacity: 80%;
 }
 
@@ -710,6 +710,19 @@ footer p:hover {
   .contact .text{
     width: 100%;
 }
+  :root {
+    /* Make it smaller */
+    --slider-size: min(100%, 250px);
+  }
+  .slider.full-bleed .slidewrapper:first-child {
+    padding-left: 7vw;
+  }
+  .slide{
+    height: calc(100% - 5px);
+  }
+  section{
+    padding-top: 0;
+  }
 }
 @media (max-width: 500px){
   section{
