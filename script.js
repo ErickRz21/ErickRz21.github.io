@@ -55,3 +55,4 @@ function confirmDownload () {
     document.body.removeChild(downloadLink)
   }
 }
+

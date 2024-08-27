@@ -27,6 +27,8 @@
 }
 body{
   background: #161A30;
+  user-select: none;
+  overflow-x: hidden;
 }
 html {
   overflow: auto;
@@ -62,7 +64,7 @@ nav .navbar{
 }
 nav .navbar .logo a {
   font-weight: 600; /* Slightly bolder for emphasis */
-  font-size: 36px; /* Slightly larger for better visibility */
+  font-size: 32px; /* Slightly larger for better visibility */
   color: #fff;
   transition: all 0.3s ease-in-out;
   position: relative; /* Prepare for additional styling */
@@ -211,7 +213,7 @@ i.fas.fa-bars::after {
 /* Those Elements Where We Have Apply Same CSS,
  I'm Selecting Directly 'Section Tag' and 'Class'  */
 section{
-  padding-top: 40px;
+  padding-top: 20px;
 }
 section .content{
   width: 80%;
@@ -258,8 +260,9 @@ section .title span::after{
   height: 400px;
   width: 400px;
   object-fit: cover;
-  border-radius: 12px;
-  border: 2px solid #0E2431;
+  border-radius: 20px;
+  border: #615EFC solid 2px;
+  transition: all 0.3s ease-in-out;
 }
 .about .left a{
   margin: 30px 0;
@@ -354,47 +357,75 @@ section .button button:hover{
   color: #615EFC;
 }
 /* My Services CSS */
-.services .boxes{
+.services .boxes {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
-.services .boxes .box{
+
+.services .boxes .box {
   margin: 20px 0;
   width: calc(100% / 3 - 20px);
   text-align: center;
-  border-radius: 12px;
-  padding: 30px 10px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
+  border-radius: 20px;
+  padding: 30px 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease-in-out;
-  background: #31304D;
-  color: #B6BBC4;
+  background: linear-gradient(135deg, #3A3A76, #27264C);
+  color: #D1D5DB;
+  overflow: hidden;
+  position: relative;
 }
-.services .boxes .box:hover{
-  border: #B6BBC4 2px solid;
+
+.services .boxes .box:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: skewX(45deg);
+  transition: all 0.3s ease-in-out;
+}
+
+.services .boxes .box:hover:before {
+  left: 100%;
+}
+
+.services .boxes .box:hover {
+  border: 2px solid #D1D5DB;
   color: #fff;
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
-.services .boxes .box .icon{
-  height: 50px;
-  width: 50px;
-  background: #615EFC;
+
+.services .boxes .box .icon {
+  height: 60px;
+  width: 60px;
+  background: linear-gradient(135deg, #6E64E7, #4B49C8);
   border-radius: 50%;
   text-align: center;
-  line-height: 50px;
-  font-size: 18px;
+  line-height: 60px;
+  font-size: 24px;
   color: #fff;
-  margin: 0 auto 10px auto;
+  margin: 0 auto 15px auto;
   transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-.boxes .box:hover .icon{
+
+.services .boxes .box:hover .icon {
   background-color: #fff;
-  color: #615EFC;
+  color: #3A3A76;
 }
-.services .boxes .box:hover .topic,
-.services .boxes .box:hover p{
-  color: #fff;
+
+.services .boxes .box .topic,
+.services .boxes .box p {
   transition: all 0.3s ease-in-out;
+}
+
+.services .boxes .box:hover .topic,
+.services .boxes .box:hover p {
+  color: #fff;
 }
 /* Contact Me CSS */
 .contact .content{
@@ -410,28 +441,146 @@ section .button button:hover{
   color: #fff;
   margin-top: 10px;
 }
-/* Footer CSS */
-footer{
-  background: #31304D;
-  padding: 15px 0;
-  text-align: center;
-  font-family: 'Kumbh Sans', sans-serif;
-}
-footer .text span{
-  font-size: 17px;
-  font-weight: 400;
+
+/* Projects CSS */
+/* Carousel */
+.projects .text{
   color: #fff;
 }
-footer .text span a{
-  font-weight: 500;
-  color: #FFF;
+
+/* Better slider */
+:root {
+  --slider-size: min(100%, 400px);
+  --slider-border-radius: 20px;
+  --slider-fullbleed-gap: 6px;
 }
-footer .text span a:hover{
+
+.slider {
+  margin-top: 50px;
+  display: flex;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  width: var(--slider-size);
+  border-radius: var(--slider-border-radius);
+  scrollbar-width: none;
+}
+
+/* Hide Scrollbar itself */
+.slider {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.slider::-webkit-scrollbar {
+  display: none;
+}
+
+.slidewrapper {
+  scroll-snap-align: center;
+  /* Size me */
+  flex: 0 0 var(--slider-size);
+  width: var(--slider-size);
+  max-width: 100%;
+  /* This is needed for the paddings (in the full-bleed variant) to work …*/
+  box-sizing: content-box;
+  display: flex;
+  transition: all 0.5s ease-in-out;
+}
+
+.slide {
+  flex: 1;
+  /* Give me some height */
+  height: calc(100% - 10px);
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  border: #31304D solid 1px;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit:cover;
+}
+
+.slide:hover {
+  border: #fff solid 1px;
+  opacity: 80%;
+}
+
+.slide:active {
+  transform: scale(98%);
+}
+
+/* Distance between start page */
+.full-bleed {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  transform: translateX(0);
+}
+
+/* Put border-radius on the individual slides, not the slider-container */
+.slider.full-bleed {
+  border-radius: 0;
+}
+
+.slider.full-bleed .slide {
+  border-radius: var(--slider-border-radius);
+}
+
+/* Add a faux gap between the slidewrappers */
+.slider.full-bleed .slidewrapper {
+  margin-right: var(--slider-fullbleed-gap);
+}
+
+/* Offset first slidewrapper from the left so that it apppears centered on load */
+.slider.full-bleed .slidewrapper:first-child {
+  padding-left: 10vw;
+}
+
+/* Offset last slidewrapper so that it apppears centered when at the last item */
+/* Note that margin-right won't work …*/
+.slider.full-bleed .slidewrapper:last-child {
+  margin-right: 0;
+  padding-right: calc(50vw - (var(--slider-size) / 2));
+}
+
+/* Footer CSS */
+footer {
+  background: linear-gradient(135deg, #3A3A76, #1C1B35);
+  padding: 20px 0;
+  text-align: center;
+  font-family: 'Kumbh Sans', sans-serif;
+  box-shadow: 0 -2px 5px #615EFC;
+}
+
+footer .text span {
+  font-size: 18px;
+  font-weight: 400;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+footer .text span a {
+  font-weight: 500;
+  color: #615EFC;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+footer .text span a:hover {
+  color: #FF6F61;
   text-decoration: underline;
 }
-footer p{
-  font-size: 17px;
-  margin-top: 10px;
+
+footer p {
+  font-size: 16px;
+  margin-top: 15px;
+  color: #ccc;
+}
+
+footer p:hover {
+  color: #fff;
+  transition: color 0.3s ease;
 }
 /* Scroll TO Top Button CSS */
 .scroll-button a{
@@ -446,6 +595,7 @@ footer p{
   box-shadow: rgba(0, 0, 0, 0.15);
   display: none;
   transition: all 0.3s ease-in-out;
+  z-index: 900;
 }
 
 .scroll-button a:hover{
@@ -489,20 +639,24 @@ footer p{
 @media (max-width: 750px) {
   nav .navbar{
     width: 90%;
+    
   }
-  nav .navbar .menu{
-    position: fixed;
-    left: -100%;
-    top: 0;
-    background: #31304D;
-    height: 100vh;
-    max-width: 400px;
-    width: 100%;
-    padding-top: 60px;
-    flex-direction: column;
-    align-items: center;
-    transition: all 0.3s ease-in-out;
-  }
+  nav .navbar .menu {
+  position: fixed;
+  left: -100%;
+  top: 0;
+  background: linear-gradient(135deg, #615EFC, #1C1B35);
+  height: 100vh;
+  max-width: 400px;
+  width: 100%;
+  padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  box-shadow: 2px 0 15px rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+}
   .navbar.active .menu{
     left: 0;
   }
@@ -556,8 +710,24 @@ footer p{
   .contact .text{
     width: 100%;
 }
+  :root {
+    /* Make it smaller */
+    --slider-size: min(100%, 250px);
+  }
+  .slider.full-bleed .slidewrapper:first-child {
+    padding-left: 7vw;
+  }
+  .slide{
+    height: calc(100% - 5px);
+  }
+  section{
+    padding-top: 0;
+  }
 }
 @media (max-width: 500px){
+  section{
+    padding-top: 0;
+  }
   .home .text-two{
     font-size: 55px;
   }
@@ -568,4 +738,3 @@ footer p{
     font-size: 50px;
   }
 }
-
