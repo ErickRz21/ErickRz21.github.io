@@ -629,11 +629,30 @@ footer p:hover {
     margin: 20px 0;
     width: calc(100% / 2 - 20px);
   }
+    :root {
+      /* Make it smaller */
+      --slider-size: min(100%, 350px);
+    }
+    .slider.full-bleed .slidewrapper:first-child {
+    padding-left: 7vw;
+  }
 }
 @media (max-width: 900px) {
   .about .left img{
     height: 350px;
     width: 350px;
+  }
+  :root {
+     /* Make it smaller */
+     --slider-size: min(100%, 300px);
+  }
+  
+  .slider.full-bleed .slidewrapper:first-child {
+    padding-left: 7vw;
+  }
+  
+  .slide {
+    height: calc(100% - 8px);
   }
 }
 @media (max-width: 750px) {
