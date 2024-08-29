@@ -5,6 +5,7 @@
   box-sizing: border-box;
   text-decoration: none;
   scroll-behavior: smooth;
+  font-family: 'Kumbh Sans', sans-serif;
 }
 /* Custom Scroll Bar CSS */
 ::-webkit-scrollbar {
@@ -30,7 +31,6 @@ body{
   background: #161A30;
   user-select: none;
   overflow-x: hidden;
-  font-family: 'Kumbh Sans', sans-serif;
 }
 html {
   overflow: auto;
@@ -419,7 +419,6 @@ section .button button:hover{
 }
 .contact p{
   color: #fff;
-  margin-top: 10px;
 }
 
 /* Projects CSS */
@@ -549,7 +548,7 @@ footer .text span a:hover {
 
 footer p {
   font-size: 16px;
-  margin-top: 15px;
+  margin-top: 30px;
   color: #ccc;
 }
 
