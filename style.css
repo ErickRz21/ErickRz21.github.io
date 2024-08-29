@@ -30,13 +30,13 @@ body{
   background: #161A30;
   user-select: none;
   overflow-x: hidden;
+  font-family: 'Kumbh Sans', sans-serif;
 }
 html {
   overflow: auto;
   scroll-behavior: smooth;
 }
 button {
-  font-family: 'Kumbh Sans', sans-serif;
   cursor: pointer;
 }
 p{
@@ -49,7 +49,7 @@ nav{
   padding: 20px 0;
   z-index: 998;
   transition: all 0.3s ease-in-out;
-  font-family: 'Kumbh Sans', sans-serif;
+
 }
 nav.sticky{
   background: #161A30;
@@ -139,7 +139,6 @@ nav .menu-btn:hover{
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  font-family: 'Kumbh Sans', sans-serif;
   background-color: #161A30;
 }
 .home .home-content{
@@ -199,7 +198,6 @@ section{
 section .content{
   width: 80%;
   margin: 40px auto;
-  font-family: 'Kumbh Sans', sans-serif;
 }
 .about .about-details{
   display: flex;
@@ -528,7 +526,6 @@ footer {
   background: linear-gradient(135deg, #3A3A76, #1C1B35);
   padding: 20px 0;
   text-align: center;
-  font-family: 'Kumbh Sans', sans-serif;
   box-shadow: 0 -2px 5px #615EFC;
 }
 
@@ -617,8 +614,8 @@ footer p:hover {
 }
 @media (max-width: 900px) {
   .about .left img{
-    height: 350px;
-    width: 350px;
+    height: 100%;
+    width: 100%;
   }
   :root {
      /* Make it smaller */
@@ -670,6 +667,9 @@ footer p:hover {
   .navbar .menu .cancel-btn{
     display: block;
   }
+  .about .about-details .right{
+    width: 100%;
+  }
   .button{
     text-align: center;
   }
@@ -692,7 +692,7 @@ footer p:hover {
   }
   .skills-details .text{
     width: 100%;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
   }
   .skills-details .boxes{
     justify-content: center;
