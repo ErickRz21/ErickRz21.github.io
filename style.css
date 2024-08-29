@@ -25,6 +25,7 @@
   color: #fff;
   background: #615EFC;
 }
+
 body{
   background: #161A30;
   user-select: none;
@@ -32,6 +33,7 @@ body{
 }
 html {
   overflow: auto;
+  scroll-behavior: smooth;
 }
 button {
   font-family: 'Kumbh Sans', sans-serif;
@@ -84,12 +86,6 @@ nav .navbar .logo a::after {
 nav .navbar .logo a:hover::after {
   width: 100%; /* Expands underline on hover */
 }
-
-nav .navbar .logo a:hover {
-  color: #615EFC; /* Changes text color on hover to match the underline */
-  transform: scale(1.05); /* Slight zoom effect on hover */
-}
-
 nav .navbar .menu{
   display: flex;
   position: relative;
@@ -123,32 +119,17 @@ nav .menu-btn,
 .navbar .menu .cancel-btn{
   position: absolute;
   color: #fff;
-  right: 30px;
-  top: 20px;
+  left: 30px;
+  top: 30px;
   font-size: 20px;
-  transition: all 0.3s ease-in-out;
   display: none;
-}
-nav .menu-btn{
-  color: #fff;
+  transition: all 0.3s ease-in-out;
 }
 nav.sticky .menu-btn{
-  color: #FFF;
+  top: 24px;
 }
 nav .menu-btn:hover{
-  color: #615EFC;
-}
-.navbar .menu .menu-btn{
-  color: #fff;
-}
-
-i.fas.fa-bars {
-  margin: 5px;
-  cursor: pointer;
-}
-
-i.fas.fa-bars::after {
-  margin-bottom: 50px;
+  color: #4B49C8;
 }
 
 /* home section styling */
@@ -375,6 +356,7 @@ section .button button:hover{
   color: #D1D5DB;
   overflow: hidden;
   position: relative;
+  border: 1px solid #31304D;
 }
 
 .services .boxes .box:before {
@@ -394,7 +376,7 @@ section .button button:hover{
 }
 
 .services .boxes .box:hover {
-  border: 2px solid #D1D5DB;
+  border: 1px solid #D1D5DB;
   color: #fff;
   transform: scale(1.05);
 }
@@ -444,7 +426,7 @@ section .button button:hover{
 
 /* Projects CSS */
 /* Carousel */
-.projects .text{
+.projects .text p{
   color: #fff;
 }
 
@@ -480,12 +462,8 @@ section .button button:hover{
   scroll-snap-align: center;
   /* Size me */
   flex: 0 0 var(--slider-size);
-  width: var(--slider-size);
-  max-width: 100%;
   /* This is needed for the paddings (in the full-bleed variant) to work …*/
   box-sizing: content-box;
-  display: flex;
-  transition: all 0.5s ease-in-out;
 }
 
 .slide {
@@ -493,7 +471,7 @@ section .button button:hover{
   /* Give me some height */
   height: calc(100% - 10px);
   overflow: hidden;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
   border: #31304D solid 1px;
 }
 
@@ -504,7 +482,7 @@ section .button button:hover{
 }
 
 .slide:hover {
-  border: #fff solid 1px;
+  border: #D1D5DB solid 1px;
   opacity: 80%;
 }
 
@@ -657,32 +635,32 @@ footer p:hover {
 }
 @media (max-width: 750px) {
   nav .navbar{
-    width: 90%;
-    
+    width: 100%;
+    flex-direction: column;
   }
   nav .navbar .menu {
   position: fixed;
   left: -100%;
   top: 0;
-  background: linear-gradient(135deg, #615EFC, #1C1B35);
+  background: linear-gradient(135deg, #1C1B35, #000000);
   height: 100vh;
   max-width: 400px;
-  width: 100%;
+  width: 50%;
   padding-top: 60px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  transition: all 0.6s cubic-bezier(0.68, 1, 0.40, 1);
   box-shadow: 2px 0 15px rgba(0, 0, 0, 0.6);
   z-index: 1000;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
   .navbar.active .menu{
     left: 0;
   }
   nav .navbar .menu a{
-    font-size: 23px;
+    font-size: 20px;
     display: block;
-    margin: 10px 0;
+    margin: 8px 50px;
     color: #FFF;
   }
   nav .navbar .media-icons{
@@ -723,7 +701,7 @@ footer p:hover {
     width: 100%;
   }
   .services .boxes .box{
-    margin: 20px 0;
+    margin: 6px 0;
     width: 100%;
   }
   .contact .text{
