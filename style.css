@@ -524,7 +524,7 @@ footer {
   background: linear-gradient(135deg, #3A3A76, #1C1B35);
   padding: 20px 0;
   text-align: center;
-  box-shadow: 0 -2px 5px #615EFC;
+  border-top: 3px solid #615EFC;
 }
 
 footer .text span {
